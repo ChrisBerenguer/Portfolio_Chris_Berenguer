@@ -334,26 +334,26 @@
                 </p>
 
                 <!-- Buttons -->
-                <div
-                    class="flex flex-col sm:flex-row gap-5 items-center sm:items-stretch reveal-element reveal-blur delay-400 mt-2">
-                    <button
-                        class="w-full sm:w-auto group relative flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 px-9 py-4 text-base font-medium text-white shadow-[0_0_30px_-5px_rgba(91,46,255,0.4)] ring-1 ring-inset ring-white/20 transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_50px_-5px_rgba(91,46,255,0.6)] overflow-hidden">
-                        <span
-                            class="absolute inset-0 bg-gradient-to-r from-brand-400 via-brand-500 to-brand-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <div class="flex flex-col sm:flex-row gap-5 items-center sm:items-stretch reveal-element reveal-blur delay-400 mt-2">
+                    <a href="#projetos" class="w-full sm:w-auto group relative flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 px-9 py-4 text-base font-medium text-white shadow-[0_0_30px_-5px_rgba(91,46,255,0.4)] ring-1 ring-inset ring-white/20 transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_50px_-5px_rgba(91,46,255,0.6)] overflow-hidden">
+                        <span class="absolute inset-0 bg-gradient-to-r from-brand-400 via-brand-500 to-brand-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                         <span class="relative z-10 tracking-wide font-semibold text-sm">Ver Projetos</span>
-                        <iconify-icon icon="solar:arrow-right-up-linear" width="20"
-                            class="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></iconify-icon>
-                    </button>
-                    <button
-                        class="w-full sm:w-auto group relative px-9 py-4 rounded-full bg-white/[0.03] border border-white/10 text-white text-base hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm overflow-hidden shadow-lg">
-                        <span
-                            class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                        <span
-                            class="tracking-wide font-medium text-sm text-slate-300 group-hover:text-white transition-colors z-10">Conectar
-                            no LinkedIn</span>
-                        <iconify-icon icon="solar:linkedin-bold-duotone" width="20"
-                            class="text-slate-500 group-hover:text-blue-400 transition-colors duration-300 z-10"></iconify-icon>
-                    </button>
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="20" class="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></iconify-icon>
+                    </a>
+                    <a href="https://www.linkedin.com/in/chris-berenguer-po/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto group relative px-9 py-4 rounded-full bg-white/[0.03] border border-white/10 text-white text-base hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm overflow-hidden shadow-lg">
+                        <span class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                        <span class="tracking-wide font-medium text-sm text-slate-300 group-hover:text-white transition-colors z-10">Conectar no LinkedIn</span>
+                        <iconify-icon icon="solar:linkedin-bold-duotone" width="20" class="text-slate-500 group-hover:text-blue-400 transition-colors duration-300 z-10"></iconify-icon>
+                    </a>
+                </div>
+
+                <!-- Tech Stack Minimalist Icons -->
+                <div class="mt-10 w-full flex flex-wrap justify-center lg:justify-start items-center gap-x-10 gap-y-6 reveal-element reveal-blur delay-500">
+                    <iconify-icon icon="simple-icons:python" width="26" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="Python"></iconify-icon>
+                    <iconify-icon icon="simple-icons:postgresql" width="26" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="PostgreSQL"></iconify-icon>
+                    <iconify-icon icon="simple-icons:html5" width="26" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="HTML5"></iconify-icon>
+                    <iconify-icon icon="simple-icons:css3" width="26" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="CSS3"></iconify-icon>
+                    <iconify-icon icon="simple-icons:figma" width="22" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="Figma"></iconify-icon>
                 </div>
 
                 <!-- Metrics/Social Proof -->
@@ -364,7 +364,7 @@
                             class="absolute -inset-4 bg-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
                         </div>
                         <div
-                            class="relative text-3xl md:text-4xl text-white font-bricolage font-light group-hover:text-brand-400 transition-colors duration-300">
+                            class="relative text-3xl md:text-4xl text-white font-sans font-semibold group-hover:text-brand-400 transition-colors duration-300">
                             +5</div>
                         <div
                             class="relative text-[10px] md:text-xs text-slate-500 uppercase tracking-[0.2em] font-semibold mt-2 group-hover:text-slate-400 transition-colors duration-300">
@@ -375,7 +375,7 @@
                             class="absolute -inset-4 bg-brand-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
                         </div>
                         <div
-                            class="relative text-3xl md:text-4xl text-white font-bricolage font-light text-transparent bg-clip-text bg-gradient-to-r from-brand-200 to-brand-500 group-hover:from-brand-400 group-hover:to-brand-600 transition-all duration-300">
+                            class="relative text-3xl md:text-4xl text-white font-sans font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand-200 to-brand-500 group-hover:from-brand-400 group-hover:to-brand-600 transition-all duration-300">
                             IA & Saúde</div>
                         <div
                             class="relative text-[10px] md:text-xs text-slate-500 uppercase tracking-[0.2em] font-semibold mt-2 group-hover:text-slate-400 transition-colors duration-300">
@@ -499,7 +499,7 @@
     </section>
 
     <!-- Second Section (Video & Timeline) -->
-    <section class="relative z-10 w-full pb-32 mt-20">
+    <section id="sobre" class="relative z-10 w-full pb-32 mt-20">
 
         <!-- Video Container -->
         <div class="max-w-[1000px] mx-auto px-6 mb-40 z-20 relative reveal-element reveal-blur">
@@ -932,7 +932,7 @@
     </section>
 
     <!-- Real Projects Section -->
-    <section class="relative z-20 w-full py-32 bg-[#06060A] border-t border-white/5">
+    <section id="projetos" class="relative z-20 w-full py-32 bg-[#06060A] border-t border-white/5">
         <!-- Subtle radial glow for background -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
