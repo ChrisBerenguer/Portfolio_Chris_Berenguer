@@ -1,0 +1,77 @@
+
+V´[ideo 19 min
+
+
+agora vamos para a segunda seção, não faça nenhuma modificação na primeira seção. 
+
+Primeiro coloque um vídeo centralizado rodando o vídeo da URL: https://youtu.be/AQBDy5XBnpg?si=FbpkzDu0P3wkCRjY
+
+Em seguida a seção deve mostrar uma linha do tempo, precisa ter um animated scroll para dar um efeito elegante, lembre-se de manter os cards de cada empresa em destaque, o ano precisa estar fora, mais próximo da linha. Mantenha os cards próximos
+
+Linha do tempo:
+
+2025 — Hapvida (GPM | Inovação & IA)
+
+Contexto: HealthTech em larga escala + IA aplicada em produção
+
+O que fiz:
+
+Liderança de discovery e PoCs com IA assistencial
+Gestão de portfólio e alinhamento executivo
+Projetos com impacto direto em eficiência clínica e operacional
+
+
+2024 — Ibrowse (Senior Product Owner)
+
+Contexto: Transformação digital no setor público de saúde
+
+O que fiz:
+
+Liderança de times ágeis em ERP hospitalar
+Implantação de sistemas em campo (hospitais reais)
+Estruturação de processos, requisitos e KPIs
+
+
+2023 — TappnEd (Product Manager | GenAI – Internacional)
+
+Contexto: Startup de IA generativa aplicada à educação
+
+O que fiz:
+
+Desenvolvimento de PoCs com LLMs em Python
+Tradução de negócio → solução técnica
+Criação end-to-end de produto com IA
+
+
+2023 — Bamboo (PO | Fintech B2B)
+
+Contexto: Data Analytics para mercado financeiro
+
+O que fiz:
+
+Implementação de Scrum e organização do time
+Gestão de backlog, métricas e OKRs
+Ganho expressivo de performance da squad
+
+
+2022 — PagSeguro (Product Owner | Crypto)
+
+Contexto: Produto financeiro em ambiente regulatório e competitivo
+
+O que fiz:
+
+Gestão de produto de investimentos em cripto
+Definição de métricas e evolução contínua
+Atuação end-to-end no ciclo do produto
+
+
+2021 — Lovecrypto (Growth Product Manager)
+
+Contexto: Startup early-stage de pagamentos em cripto
+
+O que fiz:
+
+Estratégia de crescimento (GTM + aquisição)
+Testes A/B, discovery e Product-Market Fit
+Escala de base de usuários e engajamento
+
