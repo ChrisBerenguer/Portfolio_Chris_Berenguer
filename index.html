@@ -111,6 +111,7 @@
         .border-gradient {
             position: relative;
         }
+
         .border-gradient::before {
             content: "";
             position: absolute;
@@ -127,21 +128,30 @@
 
         /* Infinite Marquee Animation */
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
+
         .animate-marquee {
             /* Width calculation relies on repeating exactly the same blocks */
             animation: marquee 50s linear infinite;
         }
+
         @media (max-width: 768px) {
             .animate-marquee {
                 animation-duration: 35s;
             }
         }
-        
+
         @keyframes shimmer {
-            100% { transform: translateX(100%); }
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .fade-edges {
@@ -286,13 +296,21 @@
             <div
                 class="hidden md:flex items-center gap-8 text-[11px] font-semibold tracking-[0.2em] text-slate-400 uppercase">
                 <a class="relative text-slate-400 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-0 after:h-[1px] after:bg-brand-500 hover:after:w-full after:transition-all after:duration-300 py-1"
-                    href="#sobre">Sobre</a>
+                    href="#sobre" data-i18n="nav-about">Sobre</a>
                 <a class="relative text-slate-400 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-0 after:h-[1px] after:bg-brand-500 hover:after:w-full after:transition-all after:duration-300 py-1"
-                    href="#projetos">Projetos</a>
+                    href="#projetos" data-i18n="nav-projects">Projetos</a>
                 <a class="relative text-slate-400 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-0 after:h-[1px] after:bg-brand-500 hover:after:w-full after:transition-all after:duration-300 py-1"
-                    href="#contato">Contato</a>
+                    href="#contato" data-i18n="nav-contact">Contato</a>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="switchLanguage('pt')" class="hover:scale-110 transition-transform duration-300 opacity-80 hover:opacity-100 flex items-center">
+                        <iconify-icon icon="circle-flags:br" width="20"></iconify-icon>
+                    </button>
+                    <button onclick="switchLanguage('en')" class="hover:scale-110 transition-transform duration-300 opacity-80 hover:opacity-100 flex items-center">
+                        <iconify-icon icon="circle-flags:us" width="20"></iconify-icon>
+                    </button>
+                </div>
                 <a href="#contato"
                     class="group relative px-6 py-2.5 rounded-full overflow-hidden flex items-center gap-2">
                     <span
@@ -300,7 +318,7 @@
                     <span
                         class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_center,rgba(91,46,255,0.2)_0,transparent_100%)] transition-opacity duration-500"></span>
                     <span
-                        class="relative text-[11px] font-bold tracking-[0.2em] text-brand-400 uppercase group-hover:text-brand-300 transition-colors duration-300 z-10">Fale
+                        class="relative text-[11px] font-bold tracking-[0.2em] text-brand-400 uppercase group-hover:text-brand-300 transition-colors duration-300 z-10" data-i18n="nav-cta">Fale
                         Comigo</span>
                     <iconify-icon icon="solar:arrow-right-line-duotone" width="16"
                         class="relative text-brand-400 group-hover:text-brand-300 group-hover:translate-x-1 transition-all duration-300 z-10"></iconify-icon>
@@ -319,41 +337,61 @@
                 <!-- Headline -->
                 <h1
                     class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[4rem] leading-[1.05] text-white mb-8 font-sans font-semibold tracking-tighter reveal-element reveal-blur delay-200 text-glow max-w-3xl text-balance">
-                    Transformo problemas complexos em
+                    <span data-i18n="hero-title-1">Transformo problemas complexos em</span>
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-100 via-brand-300 to-brand-500 whitespace-nowrap">
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-100 via-brand-300 to-brand-500 whitespace-nowrap" data-i18n="hero-title-2">
                         produtos digitais
                     </span>
                 </h1>
 
                 <!-- Subheadline -->
                 <p
-                    class="text-lg lg:text-xl text-neutral-400 max-w-2xl mb-12 leading-relaxed reveal-element reveal-blur delay-300 font-light tracking-wide">
+                    class="text-lg lg:text-xl text-neutral-400 max-w-2xl mb-12 leading-relaxed reveal-element reveal-blur delay-300 font-light tracking-wide" data-i18n="hero-subtitle">
                     Product Manager com experiência em saúde, IA e transformação digital — liderando desde a descoberta
                     até a entrega, com foco em impacto mensurável, eficiência operacional e adoção real.
                 </p>
 
                 <!-- Buttons -->
-                <div class="flex flex-col sm:flex-row gap-5 items-center sm:items-stretch reveal-element reveal-blur delay-400 mt-2">
-                    <a href="#projetos" class="w-full sm:w-auto group relative flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 px-9 py-4 text-base font-medium text-white shadow-[0_0_30px_-5px_rgba(91,46,255,0.4)] ring-1 ring-inset ring-white/20 transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_50px_-5px_rgba(91,46,255,0.6)] overflow-hidden">
-                        <span class="absolute inset-0 bg-gradient-to-r from-brand-400 via-brand-500 to-brand-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                        <span class="relative z-10 tracking-wide font-semibold text-sm">Ver Projetos</span>
-                        <iconify-icon icon="solar:arrow-right-up-linear" width="20" class="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></iconify-icon>
+                <div
+                    class="flex flex-col sm:flex-row gap-5 items-center sm:items-stretch reveal-element reveal-blur delay-400 mt-2">
+                    <a href="#projetos"
+                        class="w-full sm:w-auto group relative flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 px-9 py-4 text-base font-medium text-white shadow-[0_0_30px_-5px_rgba(91,46,255,0.4)] ring-1 ring-inset ring-white/20 transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_50px_-5px_rgba(91,46,255,0.6)] overflow-hidden">
+                        <span
+                            class="absolute inset-0 bg-gradient-to-r from-brand-400 via-brand-500 to-brand-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                        <span class="relative z-10 tracking-wide font-semibold text-sm" data-i18n="hero-btn-primary">Ver Projetos</span>
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="20"
+                            class="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></iconify-icon>
                     </a>
-                    <a href="https://www.linkedin.com/in/chris-berenguer-po/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto group relative px-9 py-4 rounded-full bg-white/[0.03] border border-white/10 text-white text-base hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm overflow-hidden shadow-lg">
-                        <span class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                        <span class="tracking-wide font-medium text-sm text-slate-300 group-hover:text-white transition-colors z-10">Conectar no LinkedIn</span>
-                        <iconify-icon icon="solar:linkedin-bold-duotone" width="20" class="text-slate-500 group-hover:text-blue-400 transition-colors duration-300 z-10"></iconify-icon>
+                    <a href="https://www.linkedin.com/in/chris-berenguer-po/" target="_blank" rel="noopener noreferrer"
+                        class="w-full sm:w-auto group relative px-9 py-4 rounded-full bg-white/[0.03] border border-white/10 text-white text-base hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm overflow-hidden shadow-lg">
+                        <span
+                            class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                        <span
+                            class="tracking-wide font-medium text-sm text-slate-300 group-hover:text-white transition-colors z-10" data-i18n="hero-btn-secondary">Conectar
+                            no LinkedIn</span>
+                        <iconify-icon icon="solar:linkedin-bold-duotone" width="20"
+                            class="text-slate-500 group-hover:text-blue-400 transition-colors duration-300 z-10"></iconify-icon>
                     </a>
                 </div>
 
                 <!-- Tech Stack Minimalist Icons -->
-                <div class="mt-10 w-full flex flex-wrap justify-center lg:justify-start items-center gap-x-10 gap-y-6 reveal-element reveal-blur delay-500">
-                    <iconify-icon icon="simple-icons:python" width="26" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="Python"></iconify-icon>
-                    <iconify-icon icon="simple-icons:postgresql" width="26" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="PostgreSQL"></iconify-icon>
-                    <iconify-icon icon="simple-icons:html5" width="26" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="HTML5"></iconify-icon>
-                    <iconify-icon icon="simple-icons:css3" width="26" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="CSS3"></iconify-icon>
-                    <iconify-icon icon="simple-icons:figma" width="22" class="text-white/30 hover:text-white transition-all duration-300 cursor-default" title="Figma"></iconify-icon>
+                <div
+                    class="mt-10 w-full flex flex-wrap justify-center lg:justify-start items-center gap-x-10 gap-y-6 reveal-element reveal-blur delay-500">
+                    <iconify-icon icon="simple-icons:python" width="26"
+                        class="text-white/30 hover:text-white transition-all duration-300 cursor-default"
+                        title="Python"></iconify-icon>
+                    <iconify-icon icon="simple-icons:postgresql" width="26"
+                        class="text-white/30 hover:text-white transition-all duration-300 cursor-default"
+                        title="PostgreSQL"></iconify-icon>
+                    <iconify-icon icon="simple-icons:html5" width="26"
+                        class="text-white/30 hover:text-white transition-all duration-300 cursor-default"
+                        title="HTML5"></iconify-icon>
+                    <iconify-icon icon="simple-icons:css3" width="26"
+                        class="text-white/30 hover:text-white transition-all duration-300 cursor-default"
+                        title="CSS3"></iconify-icon>
+                    <iconify-icon icon="simple-icons:figma" width="22"
+                        class="text-white/30 hover:text-white transition-all duration-300 cursor-default"
+                        title="Figma"></iconify-icon>
                 </div>
 
                 <!-- Metrics/Social Proof -->
@@ -364,10 +402,10 @@
                             class="absolute -inset-4 bg-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
                         </div>
                         <div
-                            class="relative text-3xl md:text-4xl text-white font-sans font-semibold group-hover:text-brand-400 transition-colors duration-300">
+                            class="relative text-3xl md:text-4xl text-white font-sans font-semibold group-hover:text-brand-400 transition-colors duration-300" data-i18n="hero-metric-1-val">
                             +5</div>
                         <div
-                            class="relative text-[10px] md:text-xs text-slate-500 uppercase tracking-[0.2em] font-semibold mt-2 group-hover:text-slate-400 transition-colors duration-300">
+                            class="relative text-[10px] md:text-xs text-slate-500 uppercase tracking-[0.2em] font-semibold mt-2 group-hover:text-slate-400 transition-colors duration-300" data-i18n="hero-metric-1-label">
                             Anos de Exp.</div>
                     </div>
                     <div class="group cursor-default relative">
@@ -375,10 +413,10 @@
                             class="absolute -inset-4 bg-brand-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
                         </div>
                         <div
-                            class="relative text-3xl md:text-4xl text-white font-sans font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand-200 to-brand-500 group-hover:from-brand-400 group-hover:to-brand-600 transition-all duration-300">
+                            class="relative text-3xl md:text-4xl text-white font-sans font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand-200 to-brand-500 group-hover:from-brand-400 group-hover:to-brand-600 transition-all duration-300" data-i18n="hero-metric-2-val">
                             IA & Saúde</div>
                         <div
-                            class="relative text-[10px] md:text-xs text-slate-500 uppercase tracking-[0.2em] font-semibold mt-2 group-hover:text-slate-400 transition-colors duration-300">
+                            class="relative text-[10px] md:text-xs text-slate-500 uppercase tracking-[0.2em] font-semibold mt-2 group-hover:text-slate-400 transition-colors duration-300" data-i18n="hero-metric-2-label">
                             Foco Principal</div>
                     </div>
                 </div>
@@ -426,55 +464,66 @@
     <!-- Highlights Section (Fluxora Style) -->
     <section class="max-w-7xl mx-auto px-6 mt-16 mb-24 relative z-20">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
+
             <!-- Card 1 -->
-            <a href="https://devpost.com/software/ceres-yield-aggregator-for-the-people" target="_blank" rel="noopener noreferrer" class="block cursor-pointer group relative rounded-[24px] bg-white/[0.03] p-6 flex flex-col justify-between overflow-hidden hover:bg-white/[0.08] hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(91,46,255,0.5)] border-gradient reveal-element reveal-blur delay-100">
+            <a href="https://devpost.com/software/ceres-yield-aggregator-for-the-people" target="_blank"
+                rel="noopener noreferrer"
+                class="block cursor-pointer group relative rounded-[24px] bg-white/[0.03] p-6 flex flex-col justify-between overflow-hidden hover:bg-white/[0.08] hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(91,46,255,0.5)] border-gradient reveal-element reveal-blur delay-100">
                 <div class="relative z-10 mb-8 flex items-center justify-start h-12">
                     <!-- Medal Icon -->
-                    <iconify-icon icon="solar:cup-star-bold-duotone" width="40" class="text-brand-300 group-hover:text-brand-100 transition-colors drop-shadow-[0_0_15px_rgba(108,77,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(108,77,255,0.8)]"></iconify-icon>
+                    <iconify-icon icon="solar:cup-star-bold-duotone" width="40"
+                        class="text-brand-300 group-hover:text-brand-100 transition-colors drop-shadow-[0_0_15px_rgba(108,77,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(108,77,255,0.8)]"></iconify-icon>
                 </div>
                 <div class="relative z-10">
                     <p class="text-sm text-slate-300 font-light leading-relaxed">
-                        <strong class="text-white font-medium">3º Lugar</strong> na Celo's Make Crypto Mobile Hackathon (produto DeFi)
+                        <strong class="text-white font-medium" data-i18n="highlight-1-strong">3º Lugar</strong> <span data-i18n="highlight-1-text">na Celo's Make Crypto Mobile Hackathon (produto DeFi)</span>
                     </p>
                 </div>
             </a>
 
             <!-- Card 2 -->
-            <a href="https://portal.saude.pe.gov.br/com-sistema-inovador-de-monitoramento-de-ostomizados-saude-e-destaque-no-cio-brasil-gov-2025/" target="_blank" rel="noopener noreferrer" class="block cursor-pointer group relative rounded-[24px] bg-white/[0.03] p-6 flex flex-col justify-between overflow-hidden hover:bg-white/[0.08] hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(91,46,255,0.5)] border-gradient reveal-element reveal-blur delay-200">
+            <a href="https://portal.saude.pe.gov.br/com-sistema-inovador-de-monitoramento-de-ostomizados-saude-e-destaque-no-cio-brasil-gov-2025/"
+                target="_blank" rel="noopener noreferrer"
+                class="block cursor-pointer group relative rounded-[24px] bg-white/[0.03] p-6 flex flex-col justify-between overflow-hidden hover:bg-white/[0.08] hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(91,46,255,0.5)] border-gradient reveal-element reveal-blur delay-200">
                 <div class="relative z-10 mb-8 flex items-center justify-start h-12">
                     <!-- Trophy Icon -->
-                    <iconify-icon icon="solar:medal-star-bold-duotone" width="40" class="text-brand-300 group-hover:text-brand-100 transition-colors drop-shadow-[0_0_15px_rgba(108,77,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(108,77,255,0.8)]"></iconify-icon>
+                    <iconify-icon icon="solar:medal-star-bold-duotone" width="40"
+                        class="text-brand-300 group-hover:text-brand-100 transition-colors drop-shadow-[0_0_15px_rgba(108,77,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(108,77,255,0.8)]"></iconify-icon>
                 </div>
                 <div class="relative z-10">
                     <p class="text-sm text-slate-300 font-light leading-relaxed">
-                        Projeto SASPO - <strong class="text-white font-medium">Finalista</strong> no Prêmio Nacional de Cases de Sucesso CIO Brasil GOV 2025
+                        <span data-i18n="highlight-2-text-1">Projeto SASPO - </span><strong class="text-white font-medium" data-i18n="highlight-2-strong">Finalista</strong> <span data-i18n="highlight-2-text-2">no Prêmio Nacional de Cases de Sucesso CIO Brasil GOV 2025</span>
                     </p>
                 </div>
             </a>
 
             <!-- Card 3 -->
-            <a href="https://scholar.google.com.br/citations?user=vVsoKxMAAAAJ&hl=pt-BR" target="_blank" rel="noopener noreferrer" class="block cursor-pointer group relative rounded-[24px] bg-white/[0.03] p-6 flex flex-col justify-between overflow-hidden hover:bg-white/[0.08] hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(91,46,255,0.5)] border-gradient reveal-element reveal-blur delay-300">
+            <a href="https://scholar.google.com.br/citations?user=vVsoKxMAAAAJ&hl=pt-BR" target="_blank"
+                rel="noopener noreferrer"
+                class="block cursor-pointer group relative rounded-[24px] bg-white/[0.03] p-6 flex flex-col justify-between overflow-hidden hover:bg-white/[0.08] hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(91,46,255,0.5)] border-gradient reveal-element reveal-blur delay-300">
                 <div class="relative z-10 mb-8 flex items-center justify-start h-12">
                     <!-- Book Icon -->
-                    <iconify-icon icon="solar:book-bookmark-bold-duotone" width="40" class="text-brand-300 group-hover:text-brand-100 transition-colors drop-shadow-[0_0_15px_rgba(108,77,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(108,77,255,0.8)] group-hover:scale-105 transition-transform"></iconify-icon>
+                    <iconify-icon icon="solar:book-bookmark-bold-duotone" width="40"
+                        class="text-brand-300 group-hover:text-brand-100 transition-colors drop-shadow-[0_0_15px_rgba(108,77,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(108,77,255,0.8)] group-hover:scale-105 transition-transform"></iconify-icon>
                 </div>
                 <div class="relative z-10">
                     <p class="text-sm text-slate-300 font-light leading-relaxed">
-                        Mais de <strong class="text-white font-medium">15 publicações</strong> acadêmico-científicas sobre Gestão da Inovação
+                        <span data-i18n="highlight-3-text-1">Mais de </span><strong class="text-white font-medium" data-i18n="highlight-3-strong">15 publicações</strong> <span data-i18n="highlight-3-text-2">acadêmico-científicas sobre Gestão da Inovação</span>
                     </p>
                 </div>
             </a>
 
             <!-- Card 4 -->
-            <a href="https://productoversee.com/author/chrisberenguer/" target="_blank" rel="noopener noreferrer" class="block cursor-pointer group relative rounded-[24px] bg-white/[0.03] p-6 flex flex-col justify-between overflow-hidden hover:bg-white/[0.08] hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(91,46,255,0.5)] border-gradient reveal-element reveal-blur delay-400">
+            <a href="https://productoversee.com/author/chrisberenguer/" target="_blank" rel="noopener noreferrer"
+                class="block cursor-pointer group relative rounded-[24px] bg-white/[0.03] p-6 flex flex-col justify-between overflow-hidden hover:bg-white/[0.08] hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(91,46,255,0.5)] border-gradient reveal-element reveal-blur delay-400">
                 <div class="relative z-10 mb-8 flex items-center justify-start h-12">
                     <!-- Pen/Article Icon -->
-                    <iconify-icon icon="solar:pen-new-square-bold-duotone" width="40" class="text-brand-300 group-hover:text-brand-100 transition-colors drop-shadow-[0_0_15px_rgba(108,77,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(108,77,255,0.8)] group-hover:-translate-y-1 hover:scale-105 transition-transform duration-300"></iconify-icon>
+                    <iconify-icon icon="solar:pen-new-square-bold-duotone" width="40"
+                        class="text-brand-300 group-hover:text-brand-100 transition-colors drop-shadow-[0_0_15px_rgba(108,77,255,0.4)] group-hover:drop-shadow-[0_0_20px_rgba(108,77,255,0.8)] group-hover:-translate-y-1 hover:scale-105 transition-transform duration-300"></iconify-icon>
                 </div>
                 <div class="relative z-10">
                     <p class="text-sm text-slate-300 font-light leading-relaxed">
-                        Mais de <strong class="text-white font-medium">20 artigos</strong> no Product Oversee
+                        <span data-i18n="highlight-4-text-1">Mais de </span><strong class="text-white font-medium" data-i18n="highlight-4-strong">20 artigos</strong> <span data-i18n="highlight-4-text-2">no Product Oversee</span>
                     </p>
                 </div>
             </a>
@@ -518,24 +567,28 @@
 
                 <h2
                     class="text-4xl md:text-5xl lg:text-6xl font-sans font-semibold text-white tracking-tighter text-glow">
-                    Experiência <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-200 to-brand-500">Comprovada</span>
+                    <span data-i18n="timeline-title-1">Experiência</span> <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-200 to-brand-500" data-i18n="timeline-title-2">Comprovada</span>
                 </h2>
             </div>
 
             <!-- Timeline Axis Container -->
             <div id="timeline-axis-container"
                 class="absolute left-6 md:left-1/2 top-[220px] bottom-0 w-[2px] bg-brand-500/20 md:-translate-x-1/2 rounded-full z-0 pointer-events-none">
-                
+
                 <!-- Timeline Progress Line (Lights up on scroll) -->
                 <div id="timeline-progress-line"
                     class="absolute top-0 left-0 w-full bg-gradient-to-b from-brand-600 via-brand-400 to-brand-300 shadow-[0_0_20px_4px_rgba(122,92,255,0.8)] origin-top transition-all duration-100 ease-out rounded-full flex justify-center"
                     style="height: 0%;">
-                    
+
                     <!-- The bright aura/glow at the leading edge -->
-                    <div class="absolute bottom-0 w-1.5 h-16 bg-gradient-to-t from-white via-brand-300 to-transparent blur-[4px] rounded-full translate-y-1/2"></div>
+                    <div
+                        class="absolute bottom-0 w-1.5 h-16 bg-gradient-to-t from-white via-brand-300 to-transparent blur-[4px] rounded-full translate-y-1/2">
+                    </div>
                     <!-- The bright core dot at the leading edge -->
-                    <div class="absolute bottom-0 w-[6px] h-[6px] bg-white rounded-full shadow-[0_0_20px_5px_rgba(169,150,255,1)] translate-y-1/2"></div>
+                    <div
+                        class="absolute bottom-0 w-[6px] h-[6px] bg-white rounded-full shadow-[0_0_20px_5px_rgba(169,150,255,1)] translate-y-1/2">
+                    </div>
                 </div>
             </div>
 
@@ -554,7 +607,8 @@
                     <div
                         class="w-full md:w-5/12 pl-8 md:pl-0 md:pr-12 md:text-right flex md:block items-center mb-2 md:mb-0">
                         <span
-                            class="text-xl md:text-3xl font-bricolage font-medium text-brand-300 group-hover:text-brand-100 transition-colors">2025 - 2026</span>
+                            class="text-xl md:text-3xl font-bricolage font-medium text-brand-300 group-hover:text-brand-100 transition-colors">2025
+                            - 2026</span>
                     </div>
 
                     <!-- Card -->
@@ -565,38 +619,38 @@
                                 class="absolute inset-0 bg-gradient-to-br from-brand-500/0 via-transparent to-brand-500/0 group-hover:from-brand-500/10 group-hover:to-brand-800/10 transition-all duration-500">
                             </div>
 
-                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10">
+                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10" data-i18n="timeline-1-company">
                                 Hapvida</h3>
                             <div
-                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10">
+                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10" data-i18n="timeline-1-role">
                                 GPM | Inovação & IA</div>
 
                             <div class="mb-5 relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1">Contexto</span>
-                                <p class="text-sm text-slate-300 font-light leading-relaxed">HealthTech em larga escala
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1" data-i18n="timeline-context-label">Contexto</span>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed" data-i18n="timeline-1-context">HealthTech em larga escala
                                     + IA aplicada em produção</p>
                             </div>
 
                             <div class="relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2">O
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2" data-i18n="timeline-tasks-label">O
                                     que fiz:</span>
                                 <ul class="space-y-2">
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Liderança de discovery e PoCs com IA assistencial</span>
+                                        <span data-i18n="timeline-1-task-1">Liderança de discovery e PoCs com IA assistencial</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Gestão de portfólio e alinhamento executivo</span>
+                                        <span data-i18n="timeline-1-task-2">Gestão de portfólio e alinhamento executivo</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Projetos com impacto direto em eficiência clínica e operacional</span>
+                                        <span data-i18n="timeline-1-task-3">Projetos com impacto direto em eficiência clínica e operacional</span>
                                     </li>
                                 </ul>
                             </div>
@@ -615,7 +669,8 @@
                     <!-- Year -->
                     <div class="w-full md:w-5/12 pl-8 md:pl-12 md:text-left flex md:block items-center mb-2 md:mb-0">
                         <span
-                            class="text-xl md:text-3xl font-bricolage font-medium text-brand-300 group-hover:text-brand-100 transition-colors">2024 - 2025</span>
+                            class="text-xl md:text-3xl font-bricolage font-medium text-brand-300 group-hover:text-brand-100 transition-colors">2024
+                            - 2025</span>
                     </div>
 
                     <!-- Card -->
@@ -626,38 +681,38 @@
                                 class="absolute inset-0 bg-gradient-to-br from-brand-500/0 via-transparent to-brand-500/0 group-hover:from-brand-500/10 group-hover:to-brand-800/10 transition-all duration-500">
                             </div>
 
-                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10">
+                             <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10" data-i18n="timeline-2-company">
                                 Ibrowse</h3>
                             <div
-                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10">
+                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10" data-i18n="timeline-2-role">
                                 Senior Product Owner</div>
 
                             <div class="mb-5 relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1">Contexto</span>
-                                <p class="text-sm text-slate-300 font-light leading-relaxed">Transformação digital no
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1" data-i18n="timeline-context-label">Contexto</span>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed" data-i18n="timeline-2-context">Transformação digital no
                                     setor público de saúde</p>
                             </div>
 
                             <div class="relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2">O
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2" data-i18n="timeline-tasks-label">O
                                     que fiz:</span>
                                 <ul class="space-y-2">
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Liderança de times ágeis em ERP hospitalar</span>
+                                        <span data-i18n="timeline-2-task-1">Liderança de times ágeis em ERP hospitalar</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Implantação de sistemas em campo (hospitais reais)</span>
+                                        <span data-i18n="timeline-2-task-2">Implantação de sistemas em campo (hospitais reais)</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Estruturação de processos, requisitos e KPIs</span>
+                                        <span data-i18n="timeline-2-task-3">Estruturação de processos, requisitos e KPIs</span>
                                     </li>
                                 </ul>
                             </div>
@@ -677,7 +732,8 @@
                     <div
                         class="w-full md:w-5/12 pl-8 md:pl-0 md:pr-12 md:text-right flex md:block items-center mb-2 md:mb-0">
                         <span
-                            class="text-xl md:text-3xl font-bricolage font-medium text-brand-300 group-hover:text-brand-100 transition-colors">2023 - 2024</span>
+                            class="text-xl md:text-3xl font-bricolage font-medium text-brand-300 group-hover:text-brand-100 transition-colors">2023
+                            - 2024</span>
                     </div>
 
                     <!-- Card -->
@@ -688,38 +744,38 @@
                                 class="absolute inset-0 bg-gradient-to-br from-brand-500/0 via-transparent to-brand-500/0 group-hover:from-brand-500/10 group-hover:to-brand-800/10 transition-all duration-500">
                             </div>
 
-                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10">
+                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10" data-i18n="timeline-3-company">
                                 TappnEd</h3>
                             <div
-                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10">
+                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10" data-i18n="timeline-3-role">
                                 Product Manager | GenAI – Internacional</div>
 
                             <div class="mb-5 relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1">Contexto</span>
-                                <p class="text-sm text-slate-300 font-light leading-relaxed">Startup de IA generativa
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1" data-i18n="timeline-context-label">Contexto</span>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed" data-i18n="timeline-3-context">Startup de IA generativa
                                     aplicada à educação</p>
                             </div>
 
                             <div class="relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2">O
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2" data-i18n="timeline-tasks-label">O
                                     que fiz:</span>
                                 <ul class="space-y-2">
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Desenvolvimento de PoCs com LLMs em Python</span>
+                                        <span data-i18n="timeline-3-task-1">Desenvolvimento de PoCs com LLMs em Python</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Tradução de negócio → solução técnica</span>
+                                        <span data-i18n="timeline-3-task-2">Tradução de negócio → solução técnica</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Criação end-to-end de produto com IA</span>
+                                        <span data-i18n="timeline-3-task-3">Criação end-to-end de produto com IA</span>
                                     </li>
                                 </ul>
                             </div>
@@ -749,38 +805,38 @@
                                 class="absolute inset-0 bg-gradient-to-br from-brand-500/0 via-transparent to-brand-500/0 group-hover:from-brand-500/10 group-hover:to-brand-800/10 transition-all duration-500">
                             </div>
 
-                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10">Bamboo
+                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10" data-i18n="timeline-4-company">Bamboo
                             </h3>
                             <div
-                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10">
+                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10" data-i18n="timeline-4-role">
                                 PO | Fintech B2B</div>
 
                             <div class="mb-5 relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1">Contexto</span>
-                                <p class="text-sm text-slate-300 font-light leading-relaxed">Data Analytics para mercado
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1" data-i18n="timeline-context-label">Contexto</span>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed" data-i18n="timeline-4-context">Data Analytics para mercado
                                     financeiro</p>
                             </div>
 
                             <div class="relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2">O
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2" data-i18n="timeline-tasks-label">O
                                     que fiz:</span>
                                 <ul class="space-y-2">
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Implementação de Scrum e organização do time</span>
+                                        <span data-i18n="timeline-4-task-1">Implementação de Scrum e organização do time</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Gestão de backlog, métricas e OKRs</span>
+                                        <span data-i18n="timeline-4-task-2">Gestão de backlog, métricas e OKRs</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Ganho expressivo de performance da squad</span>
+                                        <span data-i18n="timeline-4-task-3">Ganho expressivo de performance da squad</span>
                                     </li>
                                 </ul>
                             </div>
@@ -811,38 +867,38 @@
                                 class="absolute inset-0 bg-gradient-to-br from-brand-500/0 via-transparent to-brand-500/0 group-hover:from-brand-500/10 group-hover:to-brand-800/10 transition-all duration-500">
                             </div>
 
-                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10">
+                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10" data-i18n="timeline-5-company">
                                 PagSeguro</h3>
                             <div
-                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10">
+                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10" data-i18n="timeline-5-role">
                                 Product Owner | Crypto</div>
 
                             <div class="mb-5 relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1">Contexto</span>
-                                <p class="text-sm text-slate-300 font-light leading-relaxed">Produto financeiro em
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1" data-i18n="timeline-context-label">Contexto</span>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed" data-i18n="timeline-5-context">Produto financeiro em
                                     ambiente regulatório e competitivo</p>
                             </div>
 
                             <div class="relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2">O
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2" data-i18n="timeline-tasks-label">O
                                     que fiz:</span>
                                 <ul class="space-y-2">
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Gestão de produto de investimentos em cripto</span>
+                                        <span data-i18n="timeline-5-task-1">Gestão de produto de investimentos em cripto</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Definição de métricas e evolução contínua</span>
+                                        <span data-i18n="timeline-5-task-2">Definição de métricas e evolução contínua</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Atuação end-to-end no ciclo do produto</span>
+                                        <span data-i18n="timeline-5-task-3">Atuação end-to-end no ciclo do produto</span>
                                     </li>
                                 </ul>
                             </div>
@@ -861,7 +917,8 @@
                     <!-- Year -->
                     <div class="w-full md:w-5/12 pl-8 md:pl-12 md:text-left flex md:block items-center mb-2 md:mb-0">
                         <span
-                            class="text-xl md:text-3xl font-bricolage font-medium text-brand-300 group-hover:text-brand-100 transition-colors">2021 - 2022</span>
+                            class="text-xl md:text-3xl font-bricolage font-medium text-brand-300 group-hover:text-brand-100 transition-colors">2021
+                            - 2022</span>
                     </div>
 
                     <!-- Card -->
@@ -872,38 +929,38 @@
                                 class="absolute inset-0 bg-gradient-to-br from-brand-500/0 via-transparent to-brand-500/0 group-hover:from-brand-500/10 group-hover:to-brand-800/10 transition-all duration-500">
                             </div>
 
-                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10">
+                            <h3 class="text-xl md:text-2xl font-sans font-semibold text-white mb-1 relative z-10" data-i18n="timeline-6-company">
                                 Lovecrypto</h3>
                             <div
-                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10">
+                                class="text-xs text-brand-400 uppercase tracking-widest font-medium mb-5 relative z-10" data-i18n="timeline-6-role">
                                 Growth Product Manager</div>
 
                             <div class="mb-5 relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1">Contexto</span>
-                                <p class="text-sm text-slate-300 font-light leading-relaxed">Startup early-stage de
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-1" data-i18n="timeline-context-label">Contexto</span>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed" data-i18n="timeline-6-context">Startup early-stage de
                                     pagamentos em cripto</p>
                             </div>
 
                             <div class="relative z-10">
                                 <span
-                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2">O
+                                    class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-semibold block mb-2" data-i18n="timeline-tasks-label">O
                                     que fiz:</span>
                                 <ul class="space-y-2">
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Estratégia de crescimento (GTM + aquisição)</span>
+                                        <span data-i18n="timeline-6-task-1">Estratégia de crescimento (GTM + aquisição)</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Testes A/B, discovery e Product-Market Fit</span>
+                                        <span data-i18n="timeline-6-task-2">Testes A/B, discovery e Product-Market Fit</span>
                                     </li>
                                     <li class="text-sm text-slate-400 font-light flex items-start gap-2 text-left">
                                         <iconify-icon icon="solar:check-circle-bold"
                                             class="text-brand-500 shrink-0 mt-0.5"></iconify-icon>
-                                        <span>Escala de base de usuários e engajamento</span>
+                                        <span data-i18n="timeline-6-task-3">Escala de base de usuários e engajamento</span>
                                     </li>
                                 </ul>
                             </div>
@@ -918,141 +975,205 @@
     <!-- Real Projects Section -->
     <section id="projetos" class="relative z-20 w-full py-32 bg-[#06060A] border-t border-white/5">
         <!-- Subtle radial glow for background -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none">
+        </div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <!-- Section Header -->
             <div class="text-center mb-20 reveal-element reveal-blur">
-                <h2 class="text-3xl md:text-5xl font-bricolage font-semibold text-white mb-4">Casos de Sucesso</h2>
-                <p class="text-slate-400 text-lg max-w-2xl mx-auto">Projetos reais executados com foco em inovação, eficiência e métricas de impacto diretas.</p>
+                <h2 class="text-3xl md:text-5xl font-bricolage font-semibold text-white mb-4" data-i18n="projects-title">Casos de Sucesso</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="projects-subtitle">Projetos reais executados com foco em inovação,
+                    eficiência e métricas de impacto diretas.</p>
             </div>
 
             <!-- Projects Grid (Bento Style) -->
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
                 <!-- Project 1: SASPO (Large Bento) -->
-                <div class="col-span-1 md:col-span-2 xl:col-span-3 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col xl:flex-row reveal-element reveal-blur delay-100 cursor-pointer">
+                <div
+                    class="col-span-1 md:col-span-2 xl:col-span-3 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col xl:flex-row reveal-element reveal-blur delay-100 cursor-pointer">
                     <!-- Text Side -->
                     <div class="p-10 md:p-14 flex-1 flex flex-col justify-center relative z-20">
                         <p class="flex items-center gap-4 text-xs font-bold tracking-[0.2em] mb-4">
-                            <span class="text-[#00E5C0] uppercase">Ibrowse</span> 
+                            <span class="text-[#00E5C0] uppercase" data-i18n="project-1-company">Ibrowse</span>
                             <span class="text-white/40">2025</span>
                         </p>
-                        <h3 class="text-3xl md:text-[44px] font-black font-bricolage text-white uppercase leading-[1.1] mb-6 group-hover:text-brand-300 transition-colors">SASPO</h3>
-                        
-                        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
-                            Estruturar a gestão de pacientes e controle de materiais em um sistema público de saúde com alta complexidade operacional.
+                        <h3
+                            class="text-3xl md:text-[44px] font-black font-bricolage text-white uppercase leading-[1.1] mb-6 group-hover:text-brand-300 transition-colors" data-i18n="project-1-title">
+                            SASPO</h3>
+
+                        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl" data-i18n="project-1-desc">
+                            Estruturar a gestão de pacientes e controle de materiais em um sistema público de saúde com
+                            alta complexidade operacional.
                         </p>
                         <div class="mt-8 border-t border-white/5 pt-6">
-                            <p class="text-sm text-brand-50 font-medium leading-relaxed">Impacto em 3.000+ pacientes e 6.000+ atendimentos, com ampla adoção e projeto finalista do Prêmio Nacional Best Case 2025.</p>
+                            <p class="text-sm text-brand-50 font-medium leading-relaxed" data-i18n="project-1-impact">Impacto em 3.000+ pacientes e
+                                6.000+ atendimentos, com ampla adoção e projeto finalista do Prêmio Nacional Best Case
+                                2025.</p>
                         </div>
                     </div>
                     <!-- Image Side -->
-                    <div class="relative w-full xl:w-[55%] h-[300px] xl:h-[500px] overflow-hidden bg-neutral-900 xl:border-l border-white/5">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800" alt="Hospital Management" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t xl:bg-gradient-to-r from-[#0A0A0A] via-transparent to-transparent opacity-80"></div>
+                    <div
+                        class="relative w-full xl:w-[55%] h-[300px] xl:h-[500px] overflow-hidden bg-neutral-900 xl:border-l border-white/5">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800"
+                            alt="Hospital Management"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t xl:bg-gradient-to-r from-[#0A0A0A] via-transparent to-transparent opacity-80">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 2: Speech-to-Text -->
-                <div class="col-span-1 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col reveal-element reveal-blur delay-200 cursor-pointer">
+                <div
+                    class="col-span-1 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col reveal-element reveal-blur delay-200 cursor-pointer">
                     <div class="p-8 md:p-10 flex-1 flex flex-col relative z-20">
                         <p class="flex items-center gap-4 text-xs font-bold tracking-[0.2em] mb-4">
-                            <span class="text-[#00E5C0] uppercase">Hapvida NDI</span> 
+                            <span class="text-[#00E5C0] uppercase" data-i18n="project-2-company">Hapvida NDI</span>
                         </p>
-                        <h3 class="text-2xl md:text-3xl font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors">Speech-to-Text</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Reduzir o tempo e esforço médico na documentação de consultas clínicas através de reconhecimento de voz.
+                        <h3
+                            class="text-2xl md:text-3xl font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors" data-i18n="project-2-title">
+                            Speech-to-Text</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="project-2-desc">
+                            Reduzir o tempo e esforço médico na documentação de consultas clínicas através de
+                            reconhecimento de voz.
                         </p>
                         <div class="mt-auto border-t border-white/5 pt-5">
-                            <p class="text-xs text-brand-50 font-medium leading-relaxed">Redução de 40% no tempo de consulta, aumentando produtividade.</p>
+                            <p class="text-xs text-brand-50 font-medium leading-relaxed" data-i18n="project-2-impact">Redução de 40% no tempo de
+                                consulta, aumentando produtividade.</p>
                         </div>
                     </div>
                     <div class="relative w-full h-[220px] overflow-hidden bg-neutral-900 border-t border-white/5">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Doctor Tech" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent opacity-90"></div>
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
+                            alt="Doctor Tech"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent opacity-90">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 3: AutoCID -->
-                <div class="col-span-1 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col reveal-element reveal-blur delay-300 cursor-pointer">
+                <div
+                    class="col-span-1 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col reveal-element reveal-blur delay-300 cursor-pointer">
                     <div class="p-8 md:p-10 flex-1 flex flex-col relative z-20">
                         <p class="flex items-center gap-4 text-xs font-bold tracking-[0.2em] mb-4">
-                            <span class="text-[#00E5C0] uppercase">Hapvida NDI</span> 
+                            <span class="text-[#00E5C0] uppercase" data-i18n="project-2-company">Hapvida NDI</span>
                         </p>
-                        <h3 class="text-2xl md:text-3xl font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors">AutoCID</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Automatizar a sugestão de CID a partir da anamnese médica, reduzindo erros e inconsistências.
+                        <h3
+                            class="text-2xl md:text-3xl font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors" data-i18n="project-3-title">
+                            AutoCID</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="project-3-desc">
+                            Automatizar a sugestão de CID a partir da anamnese médica, reduzindo erros e
+                            inconsistências.
                         </p>
                         <div class="mt-auto border-t border-white/5 pt-5">
-                            <p class="text-xs text-brand-50 font-medium leading-relaxed">97% de acurácia na classificação CID.</p>
+                            <p class="text-xs text-brand-50 font-medium leading-relaxed" data-i18n="project-3-impact">97% de acurácia na
+                                classificação CID.</p>
                         </div>
                     </div>
                     <div class="relative w-full h-[220px] overflow-hidden bg-neutral-900 border-t border-white/5">
-                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80" alt="Data Screen" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent opacity-90"></div>
+                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80"
+                            alt="Data Screen"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent opacity-90">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 4: Dashboards no Jira -->
-                <div class="col-span-1 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col reveal-element reveal-blur delay-400 cursor-pointer">
+                <div
+                    class="col-span-1 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col reveal-element reveal-blur delay-400 cursor-pointer">
                     <div class="p-8 md:p-10 flex-1 flex flex-col relative z-20">
                         <p class="flex items-center gap-4 text-xs font-bold tracking-[0.2em] mb-4">
-                            <span class="text-[#00E5C0] uppercase">Bamboo DCM</span> 
+                            <span class="text-[#00E5C0] uppercase" data-i18n="project-4-company">Bamboo DCM</span>
                         </p>
-                        <h3 class="text-2xl md:text-3xl font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors">Dashboards no Jira</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Aumentar a visibilidade sobre a performance do time e trazer previsibilidade de entregas ágeis.
+                        <h3
+                            class="text-2xl md:text-3xl font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors" data-i18n="project-4-title">
+                            Dashboards no Jira</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="project-4-desc">
+                            Aumentar a visibilidade sobre a performance do time e trazer previsibilidade de entregas
+                            ágeis.
                         </p>
                         <div class="mt-auto border-t border-white/5 pt-5">
-                            <p class="text-xs text-brand-50 font-medium leading-relaxed">Aumento de 51% na performance nas primeiras sprints.</p>
+                            <p class="text-xs text-brand-50 font-medium leading-relaxed" data-i18n="project-4-impact">Aumento de 51% na performance
+                                nas primeiras sprints.</p>
                         </div>
                     </div>
                     <div class="relative w-full h-[220px] overflow-hidden bg-neutral-900 border-t border-white/5">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Dashboards" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent opacity-90"></div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Dashboards"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent opacity-90">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 5: Marketplace Cripto (Medium Bento) -->
-                <div class="col-span-1 md:col-span-2 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col md:flex-row reveal-element reveal-blur delay-500 cursor-pointer">
+                <div
+                    class="col-span-1 md:col-span-2 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col md:flex-row reveal-element reveal-blur delay-500 cursor-pointer">
                     <!-- Text Side -->
                     <div class="p-8 md:p-12 flex-1 flex flex-col justify-center relative z-20 order-2 md:order-1">
                         <p class="flex items-center gap-4 text-xs font-bold tracking-[0.2em] mb-4">
-                            <span class="text-[#00E5C0] uppercase">PagSeguro</span> 
+                            <span class="text-[#00E5C0] uppercase" data-i18n="project-5-company">PagSeguro</span>
                         </p>
-                        <h3 class="text-2xl md:text-[32px] font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors">Marketplace Cripto</h3>
-                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-6 max-w-sm">
-                            Lançar e evoluir um produto de investimentos em criptomoedas em ambiente regulado e altamente competitivo.
+                        <h3
+                            class="text-2xl md:text-[32px] font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors" data-i18n="project-5-title">
+                            Marketplace Cripto</h3>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-6 max-w-sm" data-i18n="project-5-desc">
+                            Lançar e evoluir um product de investimentos em criptomoedas em ambiente regulado e
+                            altamente competitivo.
                         </p>
                         <div class="border-t border-white/5 pt-5">
-                            <p class="text-xs text-brand-50 font-medium leading-relaxed">Produto consolidado no ecossistema global.</p>
+                            <p class="text-xs text-brand-50 font-medium leading-relaxed" data-i18n="project-5-impact">Produto consolidado no
+                                ecossistema global.</p>
                         </div>
                     </div>
                     <!-- Image Side -->
-                    <div class="relative w-full md:w-[45%] h-[250px] md:h-auto overflow-hidden bg-neutral-900 border-t md:border-l border-white/5 order-1 md:order-2">
-                        <img src="https://images.unsplash.com/photo-1621504450181-5d356f61d307?w=800&q=80" alt="Crypto App" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent opacity-90"></div>
+                    <div
+                        class="relative w-full md:w-[45%] h-[250px] md:h-auto overflow-hidden bg-neutral-900 border-t md:border-l border-white/5 order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1621504450181-5d356f61d307?w=800&q=80"
+                            alt="Crypto App"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent opacity-90">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 6: Discovery (Standard Bento) -->
-                <div class="col-span-1 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col reveal-element reveal-blur delay-[600ms] cursor-pointer">
+                <div
+                    class="col-span-1 group relative rounded-[32px] bg-[#0A0A0A] border border-white/[0.08] overflow-hidden hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-500 flex flex-col reveal-element reveal-blur delay-[600ms] cursor-pointer">
                     <div class="p-8 md:p-10 flex-1 flex flex-col relative z-20">
                         <p class="flex items-center gap-4 text-xs font-bold tracking-[0.2em] mb-4">
-                            <span class="text-[#00E5C0] uppercase">Lovecrypto</span> 
+                            <span class="text-[#00E5C0] uppercase" data-i18n="project-6-company">Lovecrypto</span>
                         </p>
-                        <h3 class="text-2xl md:text-3xl font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors">Discovery</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        <h3
+                            class="text-2xl md:text-3xl font-black font-bricolage text-white uppercase leading-[1.1] mb-5 group-hover:text-brand-300 transition-colors" data-i18n="project-6-title">
+                            Discovery</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="project-6-desc">
                             Encontrar Product-Market Fit em um produto early-stage de pagamentos.
                         </p>
                         <div class="mt-auto border-t border-white/5 pt-5">
-                            <p class="text-xs text-brand-50 font-medium leading-relaxed">✨ +1.155% em downloads e +1.667% MAU.</p>
+                            <p class="text-xs text-brand-50 font-medium leading-relaxed" data-i18n="project-6-impact">✨ +1.155% em downloads e
+                                +1.667% MAU.</p>
                         </div>
                     </div>
                     <div class="relative w-full h-[220px] overflow-hidden bg-neutral-900 border-t border-white/5">
-                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80" alt="Growth Chart" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent opacity-90"></div>
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80"
+                            alt="Growth Chart"
+                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-80"
+                            loading="lazy">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent opacity-90">
+                        </div>
                     </div>
                 </div>
 
@@ -1062,155 +1183,272 @@
 
     <!-- Testimonials Marquee Section -->
     <section class="py-24 relative overflow-hidden bg-[#06060A]" id="depoimentos">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-brand-500/5 via-transparent to-transparent opacity-50 z-0"></div>
-        
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-brand-500/5 via-transparent to-transparent opacity-50 z-0">
+        </div>
+
         <div class="container mx-auto px-6 relative z-10 mb-16 text-center reveal-element reveal-blur">
-            <h2 class="text-4xl md:text-5xl lg:text-[64px] font-black font-bricolage text-white leading-tight tracking-tight uppercase">
-                Pessoas com quem <span class="bg-gradient-to-r from-brand-300 to-brand-600 bg-clip-text text-transparent">Trabalhei</span>
+            <h2
+                class="text-4xl md:text-5xl lg:text-[64px] font-black font-bricolage text-white leading-tight tracking-tight uppercase">
+                <span data-i18n="testimonials-title-1">Pessoas com quem</span> <span
+                    class="bg-gradient-to-r from-brand-300 to-brand-600 bg-clip-text text-transparent" data-i18n="testimonials-title-2">Trabalhei</span>
             </h2>
-            <p class="text-slate-400 text-lg mt-6 max-w-2xl mx-auto">Relatos e experiências de líderes, parceiros de time e membros da diretoria sobre nossa jornada de construção de produtos juntos.</p>
+            <p class="text-slate-400 text-lg mt-6 max-w-2xl mx-auto" data-i18n="testimonials-subtitle">Relatos e experiências de líderes, parceiros de
+                time e membros da diretoria sobre nossa jornada de construção de produtos juntos.</p>
         </div>
 
         <div class="flex overflow-hidden fade-edges relative w-full pt-4 pb-12 group">
             <!-- Wrapper scaling to exactly 2x the width of one card set to allow 50% translation -->
-            <div class="flex w-max animate-marquee hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
+            <div
+                class="flex w-max animate-marquee hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
                 <!-- Set 1 (Original 6) -->
                 <div class="flex gap-6 pr-6">
                     <!-- Patrícia Dias -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Tive a oportunidade de trabalhar com Chris Berenguer no Hapvida NotreDame Intermédica, no time de Produtos / Inovação. Ao longo desse período, Chris se consolidou como uma referência em gestão de portfólio de produtos e como um verdadeiro disseminador de conhecimento. (...) Trabalhar com ele foi contar com um profissional que influenciou positivamente o time e gerou impacto."
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-1-quote">
+                                "Tive a oportunidade de trabalhar com Chris Berenguer no Hapvida NotreDame Intermédica,
+                                no time de Produtos / Inovação. Ao longo desse período, Chris se consolidou como uma
+                                referência em gestão de portfólio de produtos e como um verdadeiro disseminador de
+                                conhecimento. (...) Trabalhar com ele foi contar com um profissional que influenciou
+                                positivamente o time e gerou impacto."
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Patricia.jpg" alt="Patrícia Dias" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Patricia.jpg" alt="Patrícia Dias"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Patrícia Dias</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Gerente na Hapvida</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Patrícia Dias</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-1-role">Gerente na
+                                    Hapvida</p>
                             </div>
                         </div>
                     </div>
                     <!-- Vivian Furlan -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Tive o prazer de trabalhar com o Chris, que sempre se destacou por ser um profissional parceiro, organizado e com excelente domínio técnico. Tem uma postura colaborativa, compartilha conhecimento com o time e contribui para um ambiente de trabalho mais eficiente e saudável."
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-2-quote">
+                                "Tive o prazer de trabalhar com o Chris, que sempre se destacou por ser um profissional
+                                parceiro, organizado e com excelente domínio técnico. Tem uma postura colaborativa,
+                                compartilha conhecimento com o time e contribui para um ambiente de trabalho mais
+                                eficiente e saudável."
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Vivian.jpg" alt="Vivian Furlan" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Vivian.jpg" alt="Vivian Furlan"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Vivian Furlan</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Product Manager na Hapvida</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Vivian Furlan</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-2-role">Product
+                                    Manager na Hapvida</p>
                             </div>
                         </div>
                     </div>
                     <!-- Edmilson Rodrigues -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Chris é um profissional excelente e multifuncional. Ele tem habilidades criativas, gerenciais e de comunicação interpessoal. Ele se encaixa bem em qualquer equipe e tem muito sangue no olho para procurar onde ele pode fazer sua contribuição. Qualquer equipe terá sorte em ter um profissional como o Chris!"
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-3-quote">
+                                "Chris é um profissional excelente e multifuncional. Ele tem habilidades criativas,
+                                gerenciais e de comunicação interpessoal. Ele se encaixa bem em qualquer equipe e tem
+                                muito sangue no olho para procurar onde ele pode fazer sua contribuição. Qualquer equipe
+                                terá sorte em ter um profissional como o Chris!"
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Edmilson.jpg" alt="Edmilson Rodrigues" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Edmilson.jpg" alt="Edmilson Rodrigues"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Edmilson Rodrigues</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">CEO na Lovecrypto</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Edmilson Rodrigues</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-3-role">CEO na
+                                    Lovecrypto</p>
                             </div>
                         </div>
                     </div>
                     <!-- Paulo César -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Chris é um profissional detalhista e bem técnico, sempre trabalhando em conjunto com o time de Desenvolvimento para garantir as melhores entregas para os nossos clientes."
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-4-quote">
+                                "Chris é um profissional detalhista e bem técnico, sempre trabalhando em conjunto com o
+                                time de Desenvolvimento para garantir as melhores entregas para os nossos clientes."
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Paulo_Cesar.jpg" alt="Paulo César" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Paulo_Cesar.jpg" alt="Paulo César"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Paulo César</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Diretor de TI na PagSeguro</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Paulo César</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-4-role">Diretor de
+                                    TI na PagSeguro</p>
                             </div>
                         </div>
                     </div>
                     <!-- Wagner Frazão -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Chris é um excelente profissional que associa a competência técnica, com forte senso de equipe e altíssimo nível de relacionamento interpessoal. Some-se a isso, sua excelente formação acadêmica e seus conhecimentos decorrentes de suas relevantes experiências. Por esses motivos, recomendo fortemente Chris para atuação em equipes de alta performance."
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-5-quote">
+                                "Chris é um excelente profissional que associa a competência técnica, com forte senso de
+                                equipe e altíssimo nível de relacionamento interpessoal. Some-se a isso, sua excelente
+                                formação acadêmica e seus conhecimentos decorrentes de suas relevantes experiências. Por
+                                esses motivos, recomendo fortemente Chris para atuação em equipes de alta performance."
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Wagner Frazao.jpg" alt="Wagner Frazão" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Wagner Frazao.jpg" alt="Wagner Frazão"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Wagner Frazão</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">CEO no Grupo ISEAD</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Wagner Frazão</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-5-role">CEO no Grupo
+                                    ISEAD</p>
                             </div>
                         </div>
                     </div>
                     <!-- Nicolas Nogueira -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "O Chris domina o conhecimento em criptoativos e assuntos ligados à tecnologia e desenvolvimento, o que contribui para o seu excelente desempenho na área!"
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-6-quote">
+                                "O Chris domina o conhecimento em criptoativos e assuntos ligados à tecnologia e
+                                desenvolvimento, o que contribui para o seu excelente desempenho na área!"
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Nicolas Ferreira.jpg" alt="Nicolas Nogueira" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Nicolas Ferreira.jpg" alt="Nicolas Nogueira"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Nicolas Nogueira</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Business Analyst na PagSeguro</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Nicolas Nogueira</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-6-role">Business
+                                    Analyst na PagSeguro</p>
                             </div>
                         </div>
                     </div>
@@ -1219,140 +1457,251 @@
                 <!-- Set 2 (Duplicated for Seamless Infinite Loop) -->
                 <div class="flex gap-6 pr-6" aria-hidden="true">
                     <!-- Patrícia Dias -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Tive a oportunidade de trabalhar com Chris Berenguer no Hapvida NotreDame Intermédica, no time de Produtos / Inovação. Ao longo desse período, Chris se consolidou como uma referência em gestão de portfólio de produtos e como um verdadeiro disseminador de conhecimento. (...) Trabalhar com ele foi contar com um profissional que influenciou positivamente o time e gerou impacto."
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-1-quote">
+                                "Tive a oportunidade de trabalhar com Chris Berenguer no Hapvida NotreDame Intermédica,
+                                no time de Produtos / Inovação. Ao longo desse período, Chris se consolidou como uma
+                                referência em gestão de portfólio de produtos e como um verdadeiro disseminador de
+                                conhecimento. (...) Trabalhar com ele foi contar com um profissional que influenciou
+                                positivamente o time e gerou impacto."
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Patricia.jpg" alt="Patrícia Dias" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Patricia.jpg" alt="Patrícia Dias"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Patrícia Dias</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Gerente na Hapvida</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Patrícia Dias</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-1-role">Gerente na
+                                    Hapvida</p>
                             </div>
                         </div>
                     </div>
                     <!-- Vivian Furlan -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Tive o prazer de trabalhar com o Chris, que sempre se destacou por ser um profissional parceiro, organizado e com excelente domínio técnico. Tem uma postura colaborativa, compartilha conhecimento com o time e contribui para um ambiente de trabalho mais eficiente e saudável."
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-2-quote">
+                                "Tive o prazer de trabalhar com o Chris, que sempre se destacou por ser um profissional
+                                parceiro, organizado e com excelente domínio técnico. Tem uma postura colaborativa,
+                                compartilha conhecimento com o time e contribui para um ambiente de trabalho mais
+                                eficiente e saudável."
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Vivian.jpg" alt="Vivian Furlan" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Vivian.jpg" alt="Vivian Furlan"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Vivian Furlan</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Product Manager na Hapvida</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Vivian Furlan</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-2-role">Product
+                                    Manager na Hapvida</p>
                             </div>
                         </div>
                     </div>
                     <!-- Edmilson Rodrigues -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Chris é um profissional excelente e multifuncional. Ele tem habilidades criativas, gerenciais e de comunicação interpessoal. Ele se encaixa bem em qualquer equipe e tem muito sangue no olho para procurar onde ele pode fazer sua contribuição. Qualquer equipe terá sorte em ter um profissional como o Chris!"
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-3-quote">
+                                "Chris é um profissional excelente e multifuncional. Ele tem habilidades criativas,
+                                gerenciais e de comunicação interpessoal. Ele se encaixa bem em qualquer equipe e tem
+                                muito sangue no olho para procurar onde ele pode fazer sua contribuição. Qualquer equipe
+                                terá sorte em ter um profissional como o Chris!"
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Edmilson.jpg" alt="Edmilson Rodrigues" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Edmilson.jpg" alt="Edmilson Rodrigues"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Edmilson Rodrigues</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">CEO na Lovecrypto</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Edmilson Rodrigues</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-3-role">CEO na
+                                    Lovecrypto</p>
                             </div>
                         </div>
                     </div>
                     <!-- Paulo César -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Chris é um profissional detalhista e bem técnico, sempre trabalhando em conjunto com o time de Desenvolvimento para garantir as melhores entregas para os nossos clientes."
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-4-quote">
+                                "Chris é um profissional detalhista e bem técnico, sempre trabalhando em conjunto com o
+                                time de Desenvolvimento para garantir as melhores entregas para os nossos clientes."
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Paulo_Cesar.jpg" alt="Paulo César" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Paulo_Cesar.jpg" alt="Paulo César"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Paulo César</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Diretor de TI na PagSeguro</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Paulo César</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-4-role">Diretor de
+                                    TI na PagSeguro</p>
                             </div>
                         </div>
                     </div>
                     <!-- Wagner Frazão -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "Chris é um excelente profissional que associa a competência técnica, com forte senso de equipe e altíssimo nível de relacionamento interpessoal. Some-se a isso, sua excelente formação acadêmica e seus conhecimentos decorrentes de suas relevantes experiências. Por esses motivos, recomendo fortemente Chris para atuação em equipes de alta performance."
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-5-quote">
+                                "Chris é um excelente profissional que associa a competência técnica, com forte senso de
+                                equipe e altíssimo nível de relacionamento interpessoal. Some-se a isso, sua excelente
+                                formação acadêmica e seus conhecimentos decorrentes de suas relevantes experiências. Por
+                                esses motivos, recomendo fortemente Chris para atuação em equipes de alta performance."
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Wagner Frazao.jpg" alt="Wagner Frazão" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Wagner Frazao.jpg" alt="Wagner Frazão"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Wagner Frazão</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">CEO no Grupo ISEAD</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Wagner Frazão</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1" data-i18n="testimonial-5-role">CEO no Grupo
+                                    ISEAD</p>
                             </div>
                         </div>
                     </div>
                     <!-- Nicolas Nogueira -->
-                    <div class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
+                    <div
+                        class="w-[350px] md:w-[480px] shrink-0 relative group rounded-[32px] bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] overflow-hidden hover:-translate-y-4 hover:shadow-[0_30px_60px_-15px_rgba(91,46,255,0.3)] hover:border-brand-500/50 hover:bg-white/[0.04] transition-all duration-700 ease-out p-10 flex flex-col justify-between">
                         <!-- subtle inner glow -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                        </div>
+
                         <div class="relative z-10 mb-8">
-                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500">
-                                "O Chris domina o conhecimento em criptoativos e assuntos ligados à tecnologia e desenvolvimento, o que contribui para o seu excelente desempenho na área!"
+                            <svg class="w-10 h-10 text-brand-500/40 mb-6 group-hover:scale-110 group-hover:text-brand-400 transition-all duration-500"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                            <p
+                                class="text-slate-300 text-base md:text-lg leading-[1.8] font-light group-hover:text-white transition-colors duration-500" data-i18n="testimonial-6-quote">
+                                "O Chris domina o conhecimento em criptoativos e assuntos ligados à tecnologia e
+                                desenvolvimento, o que contribui para o seu excelente desempenho na área!"
                             </p>
                         </div>
-                        
-                        <div class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+
+                        <div
+                            class="relative z-10 flex items-center gap-5 mt-auto pt-6 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
                             <div class="relative">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                                <img src="Depoimentos/Nicolas Ferreira.jpg" alt="Nicolas Nogueira" class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500" loading="lazy">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-[#00E5C0] rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+                                </div>
+                                <img src="Depoimentos/Nicolas Ferreira.jpg" alt="Nicolas Nogueira"
+                                    class="relative w-14 h-14 rounded-full object-cover border-2 border-white/10 group-hover:border-white/40 transition-colors duration-500"
+                                    loading="lazy">
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">Nicolas Nogueira</h4>
-                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Business Analyst na PagSeguro</p>
+                                <h4
+                                    class="text-white font-bold text-base md:text-lg tracking-wide group-hover:text-brand-300 transition-colors duration-500">
+                                    Nicolas Nogueira</h4>
+                                <p class="text-[#00E5C0] text-xs font-bold tracking-[0.2em] uppercase mt-1">Business
+                                    Analyst na PagSeguro</p>
                             </div>
                         </div>
                     </div>
@@ -1364,25 +1713,36 @@
     <!-- Global CTA Section -->
     <section class="py-32 md:py-48 relative overflow-hidden bg-[#0A0A0A] border-t border-white/[0.08]" id="contato">
         <!-- Background Radial Glow -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-500/10 via-[#0A0A0A]/0 to-[#0A0A0A] opacity-80 pointer-events-none"></div>
-        
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-500/10 via-[#0A0A0A]/0 to-[#0A0A0A] opacity-80 pointer-events-none">
+        </div>
+
         <div class="container mx-auto px-6 relative z-10 text-center flex flex-col items-center justify-center">
-            
-            <h2 class="text-4xl md:text-[80px] font-black font-bricolage text-white uppercase tracking-tight mb-12 leading-[1.1] reveal-element reveal-blur delay-100 mix-blend-lighten">
-                Pronto para evoluir
-                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-[#00E5C0] mt-2 pb-2">seu produto?</span>
+
+            <h2
+                class="text-4xl md:text-[80px] font-black font-bricolage text-white uppercase tracking-tight mb-12 leading-[1.1] reveal-element reveal-blur delay-100 mix-blend-lighten">
+                <span data-i18n="cta-title-1">Pronto para evoluir</span>
+                <span
+                    class="block text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-[#00E5C0] mt-2 pb-2" data-i18n="cta-title-2">seu
+                    produto?</span>
             </h2>
-            
-            <a href="https://api.whatsapp.com/send/?phone=%2B5581987779095&text=Ol%C3%A1%2C+gostaria+de+falar+sobre+Produto%2C+Tecnologia%2C+Inova%C3%A7%C3%A3o+e+IA&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center gap-4 px-12 py-6 rounded-full bg-brand-600 text-white font-bold text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_60px_-15px_rgba(91,46,255,0.8)] border border-brand-400/30 hover:border-brand-300 reveal-element reveal-blur delay-300">
+
+            <a href="https://api.whatsapp.com/send/?phone=%2B5581987779095&text=Ol%C3%A1%2C+gostaria+de+falar+sobre+Produto%2C+Tecnologia%2C+Inova%C3%A7%C3%A3o+e+IA&type=phone_number&app_absent=0"
+                target="_blank" rel="noopener noreferrer"
+                class="group relative inline-flex items-center justify-center gap-4 px-12 py-6 rounded-full bg-brand-600 text-white font-bold text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_60px_-15px_rgba(91,46,255,0.8)] border border-brand-400/30 hover:border-brand-300 reveal-element reveal-blur delay-300">
                 <!-- Inner Light Sweep -->
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] transition-transform duration-500 ease-out z-0"></div>
-                
-                <span class="relative z-10 tracking-wide">Iniciar conversa</span>
-                <svg class="relative z-10 w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.471-1.761-1.643-2.061-.173-.298-.018-.46.13-.608.134-.134.298-.348.446-.521.151-.173.2-.297.3-.496.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] transition-transform duration-500 ease-out z-0">
+                </div>
+
+                <span class="relative z-10 tracking-wide" data-i18n="cta-btn">Iniciar conversa</span>
+                <svg class="relative z-10 w-6 h-6" fill="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.878-.788-1.471-1.761-1.643-2.061-.173-.298-.018-.46.13-.608.134-.134.298-.348.446-.521.151-.173.2-.297.3-.496.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                 </svg>
             </a>
-            
+
         </div>
     </section>
 
@@ -1390,38 +1750,47 @@
     <footer class="bg-[#0A0A0A] py-7 border-t border-white/[0.08] relative z-20" id="footer">
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 reveal-element reveal-blur">
-                
+
                 <!-- Minimalist Slogan -->
                 <div class="flex items-center gap-4">
-                    <p class="text-slate-500 text-[10px] md:text-[11px] font-light tracking-[0.2em] uppercase opacity-70">
+                    <p
+                        class="text-slate-500 text-[10px] md:text-[11px] font-light tracking-[0.2em] uppercase opacity-70" data-i18n="footer-slogan">
                         Estrategista de Produto & Especialista em IA
                     </p>
                 </div>
-                
+
                 <!-- Essential Social Links -->
                 <div class="flex items-center gap-2">
-                    <a href="https://www.linkedin.com/in/chris-berenguer-po/" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-white transition-colors p-2" title="Linkedin">
+                    <a href="https://www.linkedin.com/in/chris-berenguer-po/" target="_blank" rel="noopener noreferrer"
+                        class="text-slate-500 hover:text-white transition-colors p-2" title="Linkedin">
                         <iconify-icon icon="mdi:linkedin" class="text-xl"></iconify-icon>
                     </a>
-                    <a href="https://www.behance.net/chris_b_product" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-white transition-colors p-2" title="Behance">
+                    <a href="https://www.behance.net/chris_b_product" target="_blank" rel="noopener noreferrer"
+                        class="text-slate-500 hover:text-white transition-colors p-2" title="Behance">
                         <iconify-icon icon="mdi:behance" class="text-xl"></iconify-icon>
                     </a>
-                    <a href="https://github.com/ChrisBerenguer" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-white transition-colors p-2" title="Github">
+                    <a href="https://github.com/ChrisBerenguer" target="_blank" rel="noopener noreferrer"
+                        class="text-slate-500 hover:text-white transition-colors p-2" title="Github">
                         <iconify-icon icon="mdi:github" class="text-xl"></iconify-icon>
                     </a>
-                    <a href="https://scholar.google.com.br/citations?user=vVsoKxMAAAAJ&hl=pt-BR" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-white transition-colors p-2" title="Google Scholar">
+                    <a href="https://scholar.google.com.br/citations?user=vVsoKxMAAAAJ&hl=pt-BR" target="_blank"
+                        rel="noopener noreferrer" class="text-slate-500 hover:text-white transition-colors p-2"
+                        title="Google Scholar">
                         <iconify-icon icon="simple-icons:googlescholar" class="text-lg"></iconify-icon>
                     </a>
-                    <a href="https://www.youtube.com/@ChrisBerenguer_PM" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-white transition-colors p-2" title="Youtube">
+                    <a href="https://www.youtube.com/@ChrisBerenguer_PM" target="_blank" rel="noopener noreferrer"
+                        class="text-slate-500 hover:text-white transition-colors p-2" title="Youtube">
                         <iconify-icon icon="mdi:youtube" class="text-xl"></iconify-icon>
                     </a>
                 </div>
             </div>
-            
+
             <!-- Subtle Signature Line -->
-            <div class="mt-5 pt-5 border-t border-white/[0.03] flex justify-center reveal-element reveal-blur delay-200">
+            <div
+                class="mt-5 pt-5 border-t border-white/[0.03] flex justify-center reveal-element reveal-blur delay-200">
                 <p class="text-[9px] text-slate-600 tracking-[0.3em] uppercase">
-                    &copy; 2026 Chris Berenguer. Handcrafted by <span class="text-brand-500/50 font-bold">Vibe Design</span>
+                    &copy; 2026 Chris Berenguer. <span data-i18n="footer-handcrafted">Handcrafted by</span> <span class="text-brand-500/50 font-bold">Vibe
+                        Design</span>
                 </p>
             </div>
         </div>
@@ -1430,7 +1799,243 @@
 
     <!-- Advanced Scroll Animations Script -->
     <script>
+        // i18n Dictionary
+        const translations = {
+            'pt': {
+                'nav-home': 'Início',
+                'nav-about': 'Sobre',
+                'nav-projects': 'Projetos',
+                'nav-contact': 'Contato',
+                'nav-cta': 'Fale Comigo',
+                'hero-title-1': 'Transformo problemas complexos em',
+                'hero-title-2': 'produtos digitais',
+                'hero-subtitle': 'Product Manager com experiência em saúde, IA e transformação digital — liderando desde a descoberta até a entrega, com foco em impacto mensurável, eficiência operacional e adoção real.',
+                'hero-btn-primary': 'Ver Projetos',
+                'hero-btn-secondary': 'Conectar no LinkedIn',
+                'highlight-1-strong': '3º Lugar',
+                'highlight-1-text': 'na Celo\'s Make Crypto Mobile Hackathon (produto DeFi)',
+                'highlight-2-text-1': 'Projeto SASPO - ',
+                'highlight-2-strong': 'Finalista',
+                'highlight-2-text-2': 'no Prêmio Nacional de Cases de Sucesso CIO Brasil GOV 2025',
+                'highlight-3-text-1': 'Mais de ',
+                'highlight-3-strong': '15 publicações',
+                'highlight-3-text-2': 'acadêmico-científicas sobre Gestão da Inovação',
+                'highlight-4-text-1': 'Mais de ',
+                'highlight-4-strong': '20 artigos',
+                'highlight-4-text-2': 'no Product Oversee',
+                'timeline-title-1': 'Experiência',
+                'timeline-title-2': 'Comprovada',
+                'timeline-1-company': 'Hapvida',
+                'timeline-1-role': 'GPM | Inovação & IA',
+                'timeline-context-label': 'Contexto',
+                'timeline-1-context': 'HealthTech em larga escala + IA aplicada em produção',
+                'timeline-tasks-label': 'O que fiz:',
+                'timeline-1-task-1': 'Liderança de discovery e PoCs com IA assistencial',
+                'timeline-1-task-2': 'Gestão de portfólio e alinhamento executivo',
+                'timeline-1-task-3': 'Projetos com impacto direto em eficiência clínica e operacional',
+                'timeline-2-company': 'Ibrowse',
+                'timeline-2-role': 'Senior Product Owner',
+                'timeline-2-context': 'Transformação digital no setor público de saúde',
+                'timeline-2-task-1': 'Liderança de times ágeis em ERP hospitalar',
+                'timeline-2-task-2': 'Implantação de sistemas em campo (hospitais reais)',
+                'timeline-2-task-3': 'Estruturação de processos, requisitos e KPIs',
+                'timeline-3-company': 'TappnEd',
+                'timeline-3-role': 'Product Manager | GenAI – Internacional',
+                'timeline-3-context': 'Startup de IA generativa aplicada à educação',
+                'timeline-3-task-1': 'Desenvolvimento de PoCs com LLMs em Python',
+                'timeline-3-task-2': 'Tradução de negócio → solução técnica',
+                'timeline-3-task-3': 'Criação end-to-end de produto com IA',
+                'timeline-4-company': 'Bamboo',
+                'timeline-4-role': 'PO | Fintech B2B',
+                'timeline-4-context': 'Data Analytics para mercado financeiro',
+                'timeline-4-task-1': 'Implementação de Scrum e organização do time',
+                'timeline-4-task-2': 'Gestão de backlog, métricas e OKRs',
+                'timeline-4-task-3': 'Ganho expressivo de performance da squad',
+                'timeline-5-company': 'PagSeguro',
+                'timeline-5-role': 'Product Owner | Crypto',
+                'timeline-5-context': 'Produto financeiro em ambiente regulatório e competitivo',
+                'timeline-5-task-1': 'Gestão de produto de investimentos em cripto',
+                'timeline-5-task-2': 'Definição de métricas e evolução contínua',
+                'timeline-5-task-3': 'Atuação end-to-end no ciclo do produto',
+                'timeline-6-company': 'Lovecrypto',
+                'timeline-6-role': 'Growth Product Manager',
+                'timeline-6-context': 'Startup early-stage de pagamentos em cripto',
+                'timeline-6-task-1': 'Estratégia de crescimento (GTM + aquisição)',
+                'timeline-6-task-2': 'Testes A/B, discovery e Product-Market Fit',
+                'timeline-6-task-3': 'Escala de base de usuários e engajamento',
+                'projects-title': 'Casos de Sucesso',
+                'projects-subtitle': 'Projetos reais executados com foco em inovação, eficiência e métricas de impacto diretas.',
+                'project-1-company': 'Ibrowse',
+                'project-2-company': 'Hapvida NDI',
+                'project-3-company': 'Hapvida NDI',
+                'project-4-company': 'Bamboo DCM',
+                'project-5-company': 'PagSeguro',
+                'project-6-company': 'Lovecrypto',
+                'project-1-title': 'SASPO',
+                'project-1-desc': 'Estruturar a gestão de pacientes e controle de materiais em um sistema público de saúde com alta complexidade operacional.',
+                'project-1-impact': 'Impacto em 3.000+ pacientes e 6.000+ atendimentos, com ampla adoção e projeto finalista do Prêmio Nacional Best Case 2025.',
+                'project-2-title': 'Speech-to-Text',
+                'project-2-desc': 'Reduzir o tempo e esforço médico na documentação de consultas clínicas através de reconhecimento de voz.',
+                'project-2-impact': 'Redução de 40% no tempo de consulta, aumentando produtividade.',
+                'project-3-title': 'AutoCID',
+                'project-3-desc': 'Automatizar a sugestão de CID a partir da anamnese médica, reduzindo erros e inconsistências.',
+                'project-3-impact': '97% de acurácia na classificação CID.',
+                'project-4-title': 'Dashboards no Jira',
+                'project-4-desc': 'Aumentar a visibilidade sobre a performance do time e trazer previsibilidade de entregas ágeis.',
+                'project-4-impact': 'Aumento de 51% na performance nas primeiras sprints.',
+                'project-5-title': 'Marketplace Cripto',
+                'project-5-desc': 'Lançar e evoluir um produto de investimentos em criptomoedas em ambiente regulado e altamente competitivo.',
+                'project-5-impact': 'Produto consolidado no ecossistema global.',
+                'project-6-title': 'Discovery',
+                'project-6-desc': 'Encontrar Product-Market Fit em um produto early-stage de pagamentos.',
+                'project-6-impact': '✨ +1.155% em downloads e +1.667% MAU.',
+                'testimonials-title-1': 'Pessoas com quem',
+                'testimonials-title-2': 'Trabalhei',
+                'testimonials-subtitle': 'Relatos e experiências de líderes, parceiros de time e membros da diretoria sobre nossa jornada de construção de produtos juntos.',
+                'testimonial-1-quote': '"Tive a oportunidade de trabalhar com Chris Berenguer no Hapvida NotreDame Intermédica, no time de Produtos / Inovação. Ao longo desse período, Chris se consolidou como uma referência em gestão de portfólio de produtos e como um verdadeiro disseminador de conhecimento. (...) Trabalhar com ele foi contar com um profissional que influenciou positivamente o time e gerou impacto."',
+                'testimonial-1-role': 'Gerente na Hapvida',
+                'testimonial-2-quote': '"Tive o prazer de trabalhar com o Chris, que sempre se destacou por ser um profissional parceiro, organizado e com excelente domínio técnico. Tem uma postura colaborativa, compartilha conhecimento com o time e contribui para um ambiente de trabalho mais eficiente e saudável."',
+                'testimonial-2-role': 'Product Manager na Hapvida',
+                'testimonial-3-quote': '"Chris é um profissional excelente e multifuncional. Ele tem habilidades criativas, gerenciais e de comunicação interpessoal. Ele se encaixa bem em qualquer equipe e tem muito sangue no olho para procurar onde ele pode fazer sua contribuição. Qualquer equipe terá sorte em ter um profissional como o Chris!"',
+                'testimonial-3-role': 'CEO na Lovecrypto',
+                'testimonial-4-quote': '"Chris é um profissional detalhista e bem técnico, sempre trabalhando em conjunto com o time de Desenvolvimento para garantir as melhores entregas para os nossos clientes."',
+                'testimonial-4-role': 'Diretor de TI na PagSeguro',
+                'testimonial-5-quote': '"Chris é um excelente profissional que associa a competência técnica, com forte senso de equipe e altíssimo nível de relacionamento interpessoal. Some-se a isso, sua excelente formação acadêmica e seus conhecimentos decorrentes de suas relevantes experiências. Por esses motivos, recomendo fortemente Chris para atuação em equipes de alta performance."',
+                'testimonial-5-role': 'CEO no Grupo ISEAD',
+                'testimonial-6-quote': '"O Chris domina o conhecimento em criptoativos e assuntos ligados à tecnologia e desenvolvimento, o que contribui para o seu excelente desempenho na área!"',
+                'testimonial-6-role': 'Business Analyst na PagSeguro',
+                'cta-title-1': 'Pronto para evoluir',
+                'cta-title-2': 'seu produto?',
+                'cta-btn': 'Iniciar conversa',
+                'footer-slogan': 'Estrategista de Produto & Especialista em IA',
+                'footer-handcrafted': 'Handcrafted by'
+            },
+            'en': {
+                'nav-home': 'Home',
+                'nav-about': 'About',
+                'nav-projects': 'Projects',
+                'nav-contact': 'Contact',
+                'nav-cta': 'Contact Me',
+                'hero-title-1': 'I transform complex problems into',
+                'hero-title-2': 'digital products',
+                'hero-subtitle': 'Product Manager with experience in health, AI, and digital transformation — leading from discovery to delivery, focusing on measurable impact, operational efficiency, and real adoption.',
+                'hero-btn-primary': 'View Projects',
+                'hero-btn-secondary': 'Connect on LinkedIn',
+                'highlight-1-strong': '3rd Place',
+                'highlight-1-text': 'in Celo\'s Make Crypto Mobile Hackathon (DeFi product)',
+                'highlight-2-text-1': 'SASPO Project - ',
+                'highlight-2-strong': 'Finalist',
+                'highlight-2-text-2': 'in the CIO Brasil GOV 2025 National Case Study Award',
+                'highlight-3-text-1': 'More than ',
+                'highlight-3-strong': '15 academic publications',
+                'highlight-3-text-2': 'on Innovation Management',
+                'highlight-4-text-1': 'More than ',
+                'highlight-4-strong': '20 articles',
+                'highlight-4-text-2': 'on Product Oversee',
+                'timeline-title-1': 'Proven',
+                'timeline-title-2': 'Experience',
+                'timeline-1-company': 'Hapvida',
+                'timeline-1-role': 'GPM | Innovation & AI',
+                'timeline-context-label': 'Context',
+                'timeline-1-context': 'Large-scale HealthTech + AI applied in production',
+                'timeline-tasks-label': 'What I did:',
+                'timeline-1-task-1': 'Discovery leadership and PoCs with healthcare AI',
+                'timeline-1-task-2': 'Portfolio management and executive alignment',
+                'timeline-1-task-3': 'Projects with direct impact on clinical and operational efficiency',
+                'timeline-2-company': 'Ibrowse',
+                'timeline-2-role': 'Senior Product Owner',
+                'timeline-2-context': 'Digital transformation in the public health sector',
+                'timeline-2-task-1': 'Leadership of agile teams in hospital ERP',
+                'timeline-2-task-2': 'System implementation in the field (real hospitals)',
+                'timeline-2-task-3': 'Structuring processes, requirements, and KPIs',
+                'timeline-3-company': 'TappnEd',
+                'timeline-3-role': 'Product Manager | GenAI – International',
+                'timeline-3-context': 'Generative AI startup applied to education',
+                'timeline-3-task-1': 'Development of PoCs with LLMs in Python',
+                'timeline-3-task-2': 'Business to technical solution translation',
+                'timeline-3-task-3': 'End-to-end AI product creation',
+                'timeline-4-company': 'Bamboo',
+                'timeline-4-role': 'PO | Fintech B2B',
+                'timeline-4-context': 'Data Analytics for the financial market',
+                'timeline-4-task-1': 'Scrum implementation and team organization',
+                'timeline-4-task-2': 'Backlog, metrics, and OKR management',
+                'timeline-4-task-3': 'Significant squad performance gain',
+                'timeline-5-company': 'PagSeguro',
+                'timeline-5-role': 'Product Owner | Crypto',
+                'timeline-5-context': 'Financial product in a regulated and competitive environment',
+                'timeline-5-task-1': 'Crypto investment product management',
+                'timeline-5-task-2': 'Metric definition and continuous evolution',
+                'timeline-5-task-3': 'End-to-end involvement in the product cycle',
+                'timeline-6-company': 'Lovecrypto',
+                'timeline-6-role': 'Growth Product Manager',
+                'timeline-6-context': 'Early-stage crypto payment startup',
+                'timeline-6-task-1': 'Growth strategy (GTM + acquisition)',
+                'timeline-6-task-2': 'A/B testing, discovery, and Product-Market Fit',
+                'timeline-6-task-3': 'User base scale and engagement',
+                'projects-title': 'Success Cases',
+                'projects-subtitle': 'Real-world projects executed with focus on innovation, efficiency, and direct impact metrics.',
+                'project-1-company': 'Ibrowse',
+                'project-2-company': 'Hapvida NDI',
+                'project-3-company': 'Hapvida NDI',
+                'project-4-company': 'Bamboo DCM',
+                'project-5-company': 'PagSeguro',
+                'project-6-company': 'Lovecrypto',
+                'project-1-title': 'SASPO',
+                'project-1-desc': 'Structuring patient management and material control in a public health system with high operational complexity.',
+                'project-1-impact': 'Impact on 3,000+ patients and 6,000+ consultations, with wide adoption and finalist for the National Best Case 2025 Award.',
+                'project-2-title': 'Speech-to-Text',
+                'project-2-desc': 'Reducing doctor time and effort in clinical consultation documentation through voice recognition.',
+                'project-2-impact': '40% reduction in consultation time, increasing productivity.',
+                'project-3-title': 'AutoCID',
+                'project-3-desc': 'Automating ICD suggestion from medical history, reducing errors and inconsistencies.',
+                'project-3-impact': '97% accuracy in ICD classification.',
+                'project-4-title': 'Dashboards in Jira',
+                'project-4-desc': 'Increasing visibility into team performance and bringing predictability to agile deliveries.',
+                'project-4-impact': '51% performance increase in the first sprints.',
+                'project-5-title': 'Crypto Marketplace',
+                'project-5-desc': 'Launching and evolving a cryptocurrency investment product in a regulated and highly competitive environment.',
+                'project-5-impact': 'Consolidated product in the global ecosystem.',
+                'project-6-title': 'Discovery',
+                'project-6-desc': 'Finding Product-Market Fit in an early-stage payment product.',
+                'project-6-impact': '✨ +1,155% in downloads and +1,667% MAU.',
+                'testimonials-title-1': 'People I have',
+                'testimonials-title-2': 'Worked With',
+                'testimonials-subtitle': 'Reports and experiences from leaders, team partners, and board members about our product building journey together.',
+                'testimonial-1-quote': '"I had the opportunity to work with Chris Berenguer at Hapvida NotreDame Intermédica, in the Products / Innovation team. Throughout this period, Chris consolidated himself as a reference in product portfolio management and as a true disseminator of knowledge. (...) Working with him meant counting on a professional who positively influenced the team and generated impact."',
+                'testimonial-1-role': 'Manager at Hapvida',
+                'testimonial-2-quote': '"I had the pleasure of working with Chris, who always stood out for being a partner professional, organized and with excellent technical mastery. He has a collaborative posture, shares knowledge with the team and contributes to a more efficient and healthy work environment."',
+                'testimonial-2-role': 'Product Manager at Hapvida',
+                'testimonial-3-quote': '"Chris is an excellent and multifunctional professional. He has creative, managerial and interpersonal communication skills. He fits well into any team and is very eager to find where he can make his contribution. Any team will be lucky to have a professional like Chris!"',
+                'testimonial-3-role': 'CEO at Lovecrypto',
+                'testimonial-4-quote': '"Chris is a detail-oriented and very technical professional, always working together with the Development team to ensure the best deliveries for our customers."',
+                'testimonial-4-role': 'IT Director at PagSeguro',
+                'testimonial-5-quote': '"Chris is an excellent professional who combines technical competence with a strong sense of teamwork and a very high level of interpersonal relationships. Added to this is his excellent academic background and the knowledge resulting from his relevant experiences. For these reasons, I strongly recommend Chris for work in high-performance teams."',
+                'testimonial-5-role': 'CEO at ISEAD Group',
+                'testimonial-6-quote': '"Chris masters knowledge in crypto assets and matters related to technology and development, which contributes to his excellent performance in the area!"',
+                'testimonial-6-role': 'Business Analyst at PagSeguro',
+                'cta-title-1': 'Ready to evolve',
+                'cta-title-2': 'your product?',
+                'cta-btn': 'Start conversation',
+                'footer-slogan': 'Product Strategist & AI Specialist',
+                'footer-handcrafted': 'Handcrafted by'
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            localStorage.setItem('preferred-lang', lang);
+            document.documentElement.lang = lang;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred-lang') || 'pt';
+            switchLanguage(savedLang);
+
             const observerOptions = {
                 root: null,
                 rootMargin: '0px 0px -10% 0px', // Trigger sligthly before bottom
@@ -1459,11 +2064,11 @@
             // Timeline Scroll Progress Line tracking
             const axisContainer = document.getElementById('timeline-axis-container');
             const progressLine = document.getElementById('timeline-progress-line');
-            
+
             if (axisContainer && progressLine) {
                 // Initialize state
                 updateTimelineProgress();
-                
+
                 // Update on scroll native
                 window.addEventListener('scroll', updateTimelineProgress, { passive: true });
                 window.addEventListener('resize', updateTimelineProgress, { passive: true });
@@ -1471,11 +2076,11 @@
                 function updateTimelineProgress() {
                     const rect = axisContainer.getBoundingClientRect();
                     const windowHeight = window.innerHeight;
-                    
+
                     // We want the bright line to grow downwards and hit the dots exactly as they enter the screen
                     // The IntersectionObserver triggers at -10% from bottom, so around 90% of windowHeight
-                    const triggerPoint = windowHeight * 0.85; 
-                    
+                    const triggerPoint = windowHeight * 0.85;
+
                     if (rect.top > triggerPoint) {
                         progressLine.style.height = '0%';
                     } else if (rect.bottom < triggerPoint) {
